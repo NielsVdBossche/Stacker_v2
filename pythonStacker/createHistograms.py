@@ -184,7 +184,12 @@ def create_histogram_shapevar(output_histograms: dict, args, files, nominalfiles
                 current_tree: uproot.TTree = src.get_tree_from_file(filenominal, args.process)
             else:
                 print("correct era, loading vaiation")
-                current_tree: uproot.TTree = src.get_tree_from_file(filename, "Unc_" + syst.treename + "_" + variation)
+                current_tree: uproot.TTree = src.get_tree_from_file(filename, "Unc_" + syst.treename + "_" + variation, softfail=True)
+
+            if current_tree is None:
+                print(f"Could not find tree in file {filename}. Skipping...")
+                continue
+
             weights = WeightManager(current_tree, channel.selection, systematics)
             subchannelmasks, subchannelnames = channel.produce_masks(current_tree)
 
