@@ -501,7 +501,7 @@
         "processes": "MCOnly", 
         "technical_name": "CMS_scale_j", 
         "type": "shape", 
-        "fileglob": "JEC"
+        "fileglob": "_JEC.root"
     }, 
     "JER_1p93": {
         "fileglob": "JER", 

@@ -92,7 +92,7 @@ def get_file_from_globs(basedir: str, fileglobs: list[str], year: str, suffix: s
     return files
 
 
-def get_tree_from_file(filename, processname, fatalfail=False) -> uproot.TTree:
+def get_tree_from_file(filename, processname, fatalfail=False, softfail=False) -> uproot.TTree:
     current_rootfile = uproot.open(filename)
 
     try:
@@ -101,6 +101,8 @@ def get_tree_from_file(filename, processname, fatalfail=False) -> uproot.TTree:
         print(f"{processname} not found in the file {filename}. Trying other keys.")
         if fatalfail:
             exit(1)
+        if softfail:
+            return None
         for key, classname in current_rootfile.classnames().items():
             if classname != "TTree":
                 continue
