@@ -9,7 +9,8 @@
     },
     "SR-4L": {
         "subchannels": ["puresig_4L", "pureTTW_4L"],
-        "selection": "eventClass==13"
+        "selection": "eventClass==13",
+        "ignore_processes": ["ChargeMisID", "Xg", "ttW", "tttj"]
     },
     "CR-2L-23J1B": {
         "subchannels":  ["ee", "em", "mm"],
@@ -33,6 +34,9 @@
         "subchannels": [],
         "selection": "eventClass==9",
         "ignore_processes": ["ChargeMisID"]
+    },
+    "SSDL_incl": {
+        "selection": "(eventClass==11) | (eventClass==8) | (eventClass==10)"
     },
     "ee": {
         "isSubchannel": 1,

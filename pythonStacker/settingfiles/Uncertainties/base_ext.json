@@ -32,7 +32,7 @@
         "technical_name": "cross_section_ttH", 
         "channels": "all", 
         "pretty_name": "ttH norm", 
-        "rate": 1.2, 
+        "rate": 1.077, 
         "type": "flat"
     }, 
     "nonPromptElNorm": {
@@ -772,21 +772,5 @@
         "type": "weight",
         "aliasUp": "nominalWeight * otherVariations[:, 0]",
         "aliasDown": "nominalWeight"
-    },
-    "triggerSF": {
-        "channels": "all",
-        "processes": "MCOnly",
-        "technical_name": "CMS_eff_trigger",
-        "type": "weight",
-        "aliasDown": "nominalWeight * expDown[:,16]", 
-        "aliasUp": "nominalWeight * expUp[:,16]"
-    },
-    "PDF_alphaS": {
-        "channels": "all",
-        "processes": "MCOnly",
-        "technical_name": "pdf_alphas",
-        "type": "weight",
-        "aliasDown": "pdfVariations[:, 101]",
-        "aliasUp": "pdfVariations[:, 102]"
     }
 }

@@ -2,7 +2,7 @@ from src.configuration.Uncertainty import Uncertainty
 
 
 def generate_pdfvariations(dict_entry):
-    ret = [PDFVariation("PDF", dict_entry, i) for i in range(100)]
+    ret = [PDFVariation("PDF", dict_entry, i) for i in range(51)]
     return ret
 
 
@@ -17,8 +17,10 @@ class PDFVariation(Uncertainty):
         self.name = f"PDF_{instance}"
         self.pretty_name = f"PDF_{instance}"
         self.technical_name = f"pdf_{instance:02d}"
-        self.weight_key_up = f"PDF_{instance}"
-        self.weight_alias_up = f"pdfVariations[:, {instance}]"
+        self.weight_key_up = f"PDF_{(2 * instance)}"
+        self.weight_key_down = f"PDF_{(2 * instance) + 1}"
+        self.weight_alias_up = f"pdfVariations[:, {(2 * instance)}]"
+        self.weight_alias_down = f"pdfVariations[:, {(2 * instance) + 1}]"
 
         # TODO: implement interpretation of this None
-        self.weight_key_down = None
+        # self.weight_key_down = None

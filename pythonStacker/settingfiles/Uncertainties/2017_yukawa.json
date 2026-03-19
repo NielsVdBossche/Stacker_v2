@@ -362,13 +362,24 @@
     },     
     "pdfUncertainty": {
         "channels": "all", 
-        "processes": "MCOnly", 
+        "processes": [
+            "ttW",
+            "ttZ",
+            "ttH",
+            "tttt",
+            "Othert"
+        ],
         "technical_name": "pdf", 
         "type": "weight"
     }, 
     "ScaleVarFactorization": {
-        "processes": "MCOnly",
-        "corr_proc": 0, 
+        "processes": [
+            "ttW",
+            "ttZ",
+            "ttH",
+            "tttt",
+            "Othert"
+        ],        "corr_proc": 0, 
         "technical_name": "QCDscale_fac_", 
         "aliasUp": "scaleVariations[:, 3]", 
         "aliasDown": "scaleVariations[:, 4]", 
@@ -376,8 +387,13 @@
         "type": "weight"
     }, 
     "ScaleVarRenormalization": {
-        "processes": "MCOnly",
-        "corr_proc": 0, 
+        "processes": [
+            "ttW",
+            "ttZ",
+            "ttH",
+            "tttt",
+            "Othert"
+        ],        "corr_proc": 0, 
         "technical_name": "QCDscale_ren_", 
         "aliasUp": "scaleVariations[:, 0]", 
         "aliasDown": "scaleVariations[:, 1]", 

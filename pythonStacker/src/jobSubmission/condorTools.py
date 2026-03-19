@@ -52,9 +52,13 @@ def initJobScript(name, scriptfolder="", cwd=None, hardbreak=False):
         if hardbreak:
             script.write('set -e\n')
         script.write(f'cd /user/nivanden/{os.getenv("CMSSW_VERSION")}/src\n')
+        script.write('echo "sourcing cmsset_default..."\n')
         script.write('source /cvmfs/cms.cern.ch/cmsset_default.sh\n')
+        script.write('echo "success!"\n')
         script.write('eval `scram runtime -sh`\n')
+        script.write('echo "Scram done"\n')
         script.write('export X509_USER_PROXY=/user/$USER/x509up_u$(id -u $USER)\n')
+        script.write('echo "Proxy set"\n')
         script.write('cd {}\n'.format(cwd))
         script.write('echo "{}"\n\n'.format(fname))
 
@@ -95,12 +99,12 @@ def makeJobDescription(name, exe, argstring=None, stdout=None, stderr=None, log=
         f.write("should_transfer_files = NO\n\n")
         f.write("job_machine_attrs = Machine\n")
         f.write("job_machine_attrs_history_length = 5\n")
+        f.write('request_memory = {}\n'.format(mem)) # Don't specify if not necessary
         f.write("requirements = target.machine =!= MachineAttrMachine1 && target.machine =!= MachineAttrMachine2 && target.machine =!= MachineAttrMachine3  && target.machine =!= MachineAttrMachine4\n")
 
         f.write("max_retries = 5\n\n")
         #f.write("max_retries = 10\n\n")
         # f.write('request_cpus = {}\n'.format(cpus)) # Don't specify if not necessary
-        # f.write('request_memory = {}\n'.format(mem)) # Don't specify if not necessary
         # f.write('request_disk = {}\n\n'.format(disk)) # Don't specify if not necessary
         # f.write('should_transfer_files = yes\n\n')
         # (not fully sure whether to put 'yes', 'no' or omit it completely)

@@ -31,7 +31,7 @@
         "technical_name": "cross_section_ttH", 
         "channels": "all", 
         "pretty_name": "ttH norm", 
-        "rate": 1.084, 
+        "rate": 1.077, 
         "type": "flat"
     }, 
     "nonPromptElNorm": {
@@ -362,12 +362,24 @@
     },     
     "pdfUncertainty": {
         "channels": "all", 
-        "processes": "MCOnly", 
+        "processes": [
+            "ttW",
+            "ttZ",
+            "ttH",
+            "tttt",
+            "Othert"
+        ], 
         "technical_name": "pdf", 
         "type": "weight"
     }, 
     "ScaleVarFactorization": {
-        "processes": "MCOnly",
+        "processes": [
+            "ttW",
+            "ttZ",
+            "ttH",
+            "tttt",
+            "Othert"
+        ],
         "corr_proc": 0, 
         "technical_name": "QCDscale_fac_", 
         "aliasUp": "scaleVariations[:, 3]", 
@@ -376,7 +388,13 @@
         "type": "weight"
     }, 
     "ScaleVarRenormalization": {
-        "processes": "MCOnly",
+        "processes": [
+            "ttW",
+            "ttZ",
+            "ttH",
+            "tttt",
+            "Othert"
+        ],
         "corr_proc": 0, 
         "technical_name": "QCDscale_ren_", 
         "aliasUp": "scaleVariations[:, 0]", 

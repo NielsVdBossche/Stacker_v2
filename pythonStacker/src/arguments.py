@@ -6,13 +6,13 @@ def add_settingfiles(parser: argparse.ArgumentParser):
     # Add arguments here
     parser.add_argument('-vf', '--variablefile', dest="variablefile", default="settingfiles/Variables/base.json",
                         type=str, help='JSON file with variables.')
-    parser.add_argument('-sf', '--systematicsfile', dest="systematicsfile", default="settingfiles/Uncertainties/base.json",
+    parser.add_argument('-sf', '--systematicsfile', dest="systematicsfile", default="settingfiles/Uncertainties/base_ext.json",
                         type=str, help='JSON file with systematics.')
-    parser.add_argument('-pf', '--processfile', dest='processfile', default="settingfiles/Process/SM.json",
+    parser.add_argument('-pf', '--processfile', dest='processfile', default="settingfiles/Process/SM_Yukawa.json",
                         type=str, help='JSON file with process definitions.')
     parser.add_argument('-cf', '--channelfile', dest='channelfile', default="settingfiles/Channel/all_channels.json",
                         type=str, help='JSON file with channel definitions.')
-    parser.add_argument('-y', '--years', dest='years', default=["2016PreVFP", "2016PostVFP","2016", "2017", "2018"], nargs='+',
+    parser.add_argument('-y', '--years', dest='years', default=["2016PreVFP", "2016PostVFP", "2016", "2017", "2018"], nargs='+',
                         help='Specific years.')
 
 
